@@ -1,5 +1,7 @@
 package top.aidan.servlet;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
  * Blog: aidanblog.top
  */
 
-@RestController
+@Controller
 public class HelloServlet {
     @GetMapping("/hello")
-    @ResponseBody
-    public String hello() {
+    public String hello(Model model) {
+        model.addAttribute("hello","hello Aidan");
         return "hello";
     }
 }
