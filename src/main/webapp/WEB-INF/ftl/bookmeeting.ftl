@@ -6,11 +6,11 @@
         <style type="text/css">
             #divfrom{
                 float:left;
-                width:200px;
+                width:150px;
             }
             #divto{
                 float:left;
-                width:200px;
+                width:150px;
             }
             #divoperator{
                 float:left;
@@ -146,50 +146,39 @@
         </script>
     </head>
     <body onload="body_load()">
-        <div class="page-header">
-            <div class="header-banner">
-                <img src="images/header.png" alt="CoolMeeting"/>
-            </div>
-            <div class="header-title">
-                欢迎访问Cool-Meeting会议管理系统
-            </div>
-            <div class="header-quicklink">
-                欢迎您，<strong>admin</strong>
-                <a href="changepassword.html">[修改密码]</a>
-            </div>
-        </div>
+<#include 'top.ftl'>
         <div class="page-body">
             <div class="page-sidebar">
                 <div class="sidebar-menugroup">
                     <div class="sidebar-grouptitle">个人中心</div>
                     <ul class="sidebar-menu">
-                        <li class="sidebar-menuitem"><a href="notifications.html">最新通知</a></li>
-                        <li class="sidebar-menuitem active"><a href="mybookings.html">我的预定</a></li>
-                        <li class="sidebar-menuitem"><a href="mymeetings.html">我的会议</a></li>
+                        <li class="sidebar-menuitem"><a href="notifications.ftl">最新通知</a></li>
+                        <li class="sidebar-menuitem active"><a href="mybookings.ftl">我的预定</a></li>
+                        <li class="sidebar-menuitem"><a href="mymeetings.ftl">我的会议</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-menugroup">
                     <div class="sidebar-grouptitle">人员管理</div>
                     <ul class="sidebar-menu">
-                        <li class="sidebar-menuitem"><a href="departments.html">部门管理</></li>
-                        <li class="sidebar-menuitem"><a href="register.html">员工注册</a></li>
-                        <li class="sidebar-menuitem"><a href="approveaccount.html">注册审批</a></li>
-                        <li class="sidebar-menuitem"><a href="searchemployees.html">搜索员工</a></li>
+                        <li class="sidebar-menuitem"><a href="departments.ftl">部门管理</a></li>
+                        <li class="sidebar-menuitem"><a href="register.ftl">员工注册</a></li>
+                        <li class="sidebar-menuitem"><a href="approveaccount.ftl">注册审批</a></li>
+                        <li class="sidebar-menuitem"><a href="searchemployees.ftl">搜索员工</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-menugroup">
                     <div class="sidebar-grouptitle">会议预定</div>
                     <ul class="sidebar-menu">
-                        <li class="sidebar-menuitem"><a href="addmeetingroom.html">添加会议室</a></li>
-                        <li class="sidebar-menuitem"><a href="meetingrooms.html">查看会议室</a></li>
-                        <li class="sidebar-menuitem"><a href="bookmeeting.html">预定会议</a></li>
-                        <li class="sidebar-menuitem"><a href="searchmeetings.html">搜索会议</a></li>
+                        <li class="sidebar-menuitem"><a href="addmeetingroom.ftl">添加会议室</a></li>
+                        <li class="sidebar-menuitem"><a href="meetingrooms.ftl">查看会议室</a></li>
+                        <li class="sidebar-menuitem"><a href="bookmeeting.ftl">预定会议</a></li>
+                        <li class="sidebar-menuitem"><a href="searchmeetings.ftl">搜索会议</a></li>
                     </ul>
                 </div>
             </div>
             <div class="page-content">
                 <div class="content-nav">
-                    会议预定 > 修改会议预定
+                    会议预定 > 预定会议
                 </div>
                 <form>
                     <fieldset>
@@ -197,73 +186,69 @@
                         <table class="formtable">
                             <tr>
                                 <td>会议名称：</td>
-                                <td>市场部总结会议</td>
+                                <td>
+                                    <input type="text" id="meetingname" maxlength="20"/>
+                                </td>
                             </tr>
                             <tr>
                                 <td>预计参加人数：</td>
-                                <td>15</td>
+                                <td>
+                                    <input type="text" id="numofattendents" />
+                                </td>
                             </tr>
                             <tr>
                                 <td>预计开始时间：</td>
-                                <td>2013-10-21 14:50</td>
+                                <td>
+                                    <input type="date" id="startdate"/>
+                                    <input type="time" id="starttime"/>
+                                </td>
                             </tr>
                             <tr>
                                 <td>预计结束时间：</td>
-                                <td>2013-10-21 18:50
+                                <td>
+                                    <input type="date" id="enddate" />
+                                    <input type="time" id="endtime" />
+                                </td>
+                            </tr>
+							<tr>
+                                <td>会议室名称：</td>
+                                <td>
+                                    <select name="roomid">    
+                                     	<option value="1">第一会议室</option>
+                                     	<option value="2">第二会议室</option>
+										<option value="3">第三会议室</option>
+                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>会议说明：</td>
                                 <td>
-                                    <textarea id="description" rows="5" readonly>本会议将邀请专家参加。</textarea>
+                                    <textarea id="description" rows="5"></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <td>参会人员：</td>
+                                <td>选择参会人员：</td>
                                 <td>
-                                    <table class="listtable">
-                                        <tr class="listheader">
-                                            <th>姓名</th>
-                                            <th>联系电话</th>
-                                            <td>电子邮件</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jerry</td>
-                                            <td>13800138000</td>
-                                            <td>jerry@chinasofti.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jerry</td>
-                                            <td>13800138000</td>
-                                            <td>jerry@chinasofti.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jerry</td>
-                                            <td>13800138000</td>
-                                            <td>jerry@chinasofti.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jerry</td>
-                                            <td>13800138000</td>
-                                            <td>jerry@chinasofti.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jerry</td>
-                                            <td>13800138000</td>
-                                            <td>jerry@chinasofti.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jerry</td>
-                                            <td>13800138000</td>
-                                            <td>jerry@chinasofti.com</td>
-                                        </tr>
-                                    </table>
+                                    <div id="divfrom">
+                                        <select id="selDepartments" onchange="fillEmployees()">
+                                        </select>
+                                        <select id="selEmployees" multiple="true">
+                                        </select>
+                                    </div>
+                                    <div id="divoperator">
+                                        <input type="button" class="clickbutton" value="&gt;" onclick="selectEmployees()"/>
+                                        <input type="button" class="clickbutton" value="&lt;" onclick="deSelectEmployees()"/>
+                                    </div>
+                                    <div id="divto">
+                                        <select id="selSelectedEmployees" multiple="true">
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="command" colspan="2">
-                                    <input type="button" class="clickbutton" value="撤销会议" onclick="window.location.href='cancelmeeting.html';"/>
-                                    <input type="button" class="clickbutton" value="返回" onclick="window.history.back();"/>
+                                    <input type="submit" class="clickbutton" value="预定会议"/>
+                                    <input type="reset" class="clickbutton" value="重置"/>
                                 </td>
                             </tr>
                         </table>

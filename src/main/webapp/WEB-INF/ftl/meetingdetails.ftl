@@ -146,70 +146,84 @@
         </script>
     </head>
     <body onload="body_load()">
-        <div class="page-header">
-            <div class="header-banner">
-                <img src="images/header.png" alt="CoolMeeting"/>
-            </div>
-            <div class="header-title">
-                欢迎访问Cool-Meeting会议管理系统
-            </div>
-            <div class="header-quicklink">
-                欢迎您，<strong>admin</strong>
-                <a href="changepassword.html">[修改密码]</a>
-            </div>
-        </div>
+<#include 'top.ftl'>
         <div class="page-body">
-            <div class="page-sidebar">
-                <div class="sidebar-menugroup">
-                    <div class="sidebar-grouptitle">个人中心</div>
-                    <ul class="sidebar-menu">
-                        <li class="sidebar-menuitem"><a href="notifications.html">最新通知</a></li>
-                        <li class="sidebar-menuitem active"><a href="mybookings.html">我的预定</a></li>
-                        <li class="sidebar-menuitem"><a href="mymeetings.html">我的会议</a></li>
-                    </ul>
-                </div>
-                <div class="sidebar-menugroup">
-                    <div class="sidebar-grouptitle">人员管理</div>
-                    <ul class="sidebar-menu">
-                        <li class="sidebar-menuitem"><a href="departments.html">部门管理</></li>
-                        <li class="sidebar-menuitem"><a href="register.html">员工注册</a></li>
-                        <li class="sidebar-menuitem"><a href="approveaccount.html">注册审批</a></li>
-                        <li class="sidebar-menuitem"><a href="searchemployees.html">搜索员工</a></li>
-                    </ul>
-                </div>
-                <div class="sidebar-menugroup">
-                    <div class="sidebar-grouptitle">会议预定</div>
-                    <ul class="sidebar-menu">
-                        <li class="sidebar-menuitem"><a href="addmeetingroom.html">添加会议室</a></li>
-                        <li class="sidebar-menuitem"><a href="meetingrooms.html">查看会议室</a></li>
-                        <li class="sidebar-menuitem"><a href="bookmeeting.html">预定会议</a></li>
-                        <li class="sidebar-menuitem"><a href="searchmeetings.html">搜索会议</a></li>
-                    </ul>
-                </div>
-            </div>
+<#include 'leftMenu.ftl'>
             <div class="page-content">
                 <div class="content-nav">
-                    会议预定 > 撤销会议预定
+                    会议预定 > 修改会议预定
                 </div>
                 <form>
                     <fieldset>
-                        <legend>撤销预定</legend>
+                        <legend>会议信息</legend>
                         <table class="formtable">
                             <tr>
                                 <td>会议名称：</td>
                                 <td>市场部总结会议</td>
                             </tr>
                             <tr>
-                                <td>撤销理由：</td>
+                                <td>预计参加人数：</td>
                                 <td>15</td>
                             </tr>
                             <tr>
                                 <td>预计开始时间：</td>
-                                <td> <textarea id="description" rows="5">市场人员出差</textarea></td>
+                                <td>2013-10-21 14:50</td>
+                            </tr>
+                            <tr>
+                                <td>预计结束时间：</td>
+                                <td>2013-10-21 18:50
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>会议说明：</td>
+                                <td>
+                                    <textarea id="description" rows="5" readonly>本会议将邀请专家参加。</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>参会人员：</td>
+                                <td>
+                                    <table class="listtable">
+                                        <tr class="listheader">
+                                            <th>姓名</th>
+                                            <th>联系电话</th>
+                                            <td>电子邮件</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jerry</td>
+                                            <td>13800138000</td>
+                                            <td>jerry@chinasofti.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jerry</td>
+                                            <td>13800138000</td>
+                                            <td>jerry@chinasofti.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jerry</td>
+                                            <td>13800138000</td>
+                                            <td>jerry@chinasofti.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jerry</td>
+                                            <td>13800138000</td>
+                                            <td>jerry@chinasofti.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jerry</td>
+                                            <td>13800138000</td>
+                                            <td>jerry@chinasofti.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jerry</td>
+                                            <td>13800138000</td>
+                                            <td>jerry@chinasofti.com</td>
+                                        </tr>
+                                    </table>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="command" colspan="2">
-                                    <input type="button" class="clickbutton" value="确认撤销"/>
                                     <input type="button" class="clickbutton" value="返回" onclick="window.history.back();"/>
                                 </td>
                             </tr>
